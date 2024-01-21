@@ -10,14 +10,17 @@ import {
 import { useAnimation, useScroll } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Web3 from 'web3'
-import { darkTheme, GlobalStyles2, lightTheme } from '../../styles'
+import { darkTheme, GlobalStyles, lightTheme } from '../../styles'
 import Styled from './Header.styled'
 import { ThemeProvider } from 'styled-components'
+import { useRecoilState, useResetRecoilState } from 'recoil'
+import { accountState } from '../../recoil/atoms'
 
 const Header = () => {
   const headerAnimation = useAnimation()
   const [darkMode, setDarkMode] = useState(true)
-
+  const [account, setAccount] = useRecoilState(accountState)
+  const resetAccount = useResetRecoilState(accountState)
   const { scrollY } = useScroll()
   useEffect(() => {
     scrollY.onChange(() => {
@@ -32,31 +35,21 @@ const Header = () => {
   }, [scrollY, headerAnimation])
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [web3, setWeb3] = useState()
   // localStorage로 로그인 여부 판단
   useEffect(() => {
     const loggedInAccount = localStorage.getItem('isLoggedIn')
-    if (loggedInAccount !== '') {
+    if (loggedInAccount !== null) {
       setIsLoggedIn(true)
       setAccount(loggedInAccount)
     }
-    if (typeof window.ethereum !== 'undefined') {
-      // window.ethereum이 있다면
-      try {
-        const web = new Web3(window.ethereum) // 새로운 web3 객체를 만든다
-        setWeb3(web)
-      } catch (err) {
-        console.log(err)
-      }
-    }
   }, [])
-  const [account, setAccount] = useState('')
   const connectWallet = async () => {
     await window.ethereum
       .request({
         method: 'eth_requestAccounts',
       })
       .then((res) => {
+        // setAccount(res[0])
         setAccount(res[0])
         setIsLoggedIn(true)
         localStorage.setItem('isLoggedIn', res[0])
@@ -65,13 +58,13 @@ const Header = () => {
       .catch((e) => console.log(e))
   }
   const signOut = () => {
-    setAccount('')
+    resetAccount()
     setIsLoggedIn(false)
-    localStorage.setItem('isLoggedIn', '')
+    localStorage.removeItem('isLoggedIn')
   }
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <GlobalStyles2 />
+      <GlobalStyles />
       <Styled.SHeader
         className="header"
         variants={Styled.navVariants}
@@ -93,19 +86,7 @@ const Header = () => {
               <Styled.Logo>EXODUS</Styled.Logo>
             </Link>
 
-            <Styled.Search>
-              <Styled.SearchBox>
-                <Styled.SearchBar placeholder="Search NFT..." />
-              </Styled.SearchBox>
-              <Styled.SearchBox margin-right="10px">
-                <FontAwesomeIcon
-                  icon={faSearch}
-                  fontSize="15px"
-                  margin-right="10px"
-                  color="black"
-                />
-              </Styled.SearchBox>
-            </Styled.Search>
+            <Styled.Search></Styled.Search>
             <Styled.Nav>
               <Link to="/market">
                 <Styled.Menu>Market</Styled.Menu>
@@ -123,9 +104,9 @@ const Header = () => {
                   <FontAwesomeIcon icon={faUser} />
                 </Styled.Icon>
               </Link>
-              <Styled.Icon>
+              {/* <Styled.Icon>
                 <FontAwesomeIcon icon={faWallet} />
-              </Styled.Icon>
+              </Styled.Icon> */}
               <Styled.Icon>
                 <FontAwesomeIcon
                   onClick={() => {

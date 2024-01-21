@@ -82,8 +82,7 @@ function Footer() {
         <Styled.FooterBelow className="sb__footer-below">
           <div className="sb__footer-copyright">
             <Styled.FooterCopyrightP>
-              Copyrightⓒ {new Date().getFullYear()} ExodusInc. All right
-              reserved.
+              Copyrightⓒ 2023 ExodusInc. All right reserved.
             </Styled.FooterCopyrightP>
           </div>
           <Styled.FooterBelowLinks className="sb__footer-below-links">

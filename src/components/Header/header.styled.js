@@ -54,11 +54,13 @@ const Icon = styled.span`
 `
 
 const Search = styled.div`
-  background-color: #eae9ed;
+  // 검색 기능
+  /* background-color: #eae9ed; */
+  /* margin-left: 25px; */
+  /* width: 300px; */
+  width: 50px;
   display: flex;
   border-radius: 10px;
-  margin-left: 25px;
-  width: 300px;
   height: 30px;
   justify-content: space-between;
   align-items: center;
