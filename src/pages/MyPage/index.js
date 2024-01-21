@@ -11,7 +11,6 @@ import {
 } from '../../styles'
 import Web3 from 'web3'
 import erc721abi from '../../erc721abi'
-import backImageSrc from '../../img/jesus.jpg'
 import MarketStyled from '../MarketPage/Market.styled'
 import PulseLoader from 'react-spinners/PulseLoader'
 import Detail from '../../components/Detail'
@@ -66,11 +65,11 @@ function MyPage() {
 
   return (
     <Styled.Container>
-      <Styled.BackImage src={backImageSrc} />
+      <Styled.BackImage src={'/img/jesus.jpg'} />
       <Styled.ProfileImg />
       <Styled.Profile>
         <Styled.ProfileName>
-          {localStorage.getItem('isLoggedIn') == ''
+          {localStorage.getItem('isLoggedIn') === ''
             ? ''
             : localStorage.getItem('isLoggedIn')}
         </Styled.ProfileName>
