@@ -6,7 +6,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 import MarketStyled from '../MarketPage/Market.styled'
 import Styled from './Home.styled'
 
-function Home() {
+function HomePage() {
   // 슬라이더
   const sliderItem = new Array(21).fill().map((arr, i) => i + 1)
   const sliderOffset = 4
@@ -159,4 +159,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomePage

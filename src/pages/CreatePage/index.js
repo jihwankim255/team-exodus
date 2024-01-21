@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import Detail from '../../components/Detail'
 import Styled from './Create.styled'
 
-function Create() {
+function CreatePage() {
   const [web3, setWeb3] = useState()
   const [mintedNft, setMintedNft] = useState()
   const [mintsuccess, setMintsuccess] = useState(false)
@@ -90,4 +90,4 @@ function Create() {
   )
 }
 
-export default Create
+export default CreatePage

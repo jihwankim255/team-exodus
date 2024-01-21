@@ -5,7 +5,6 @@ const SHeader = styled(motion.div)`
   z-index: 5;
   width: 100%;
   padding: 0px 40px;
-  // border-bottom: 1px solid ${(props) => props.theme.borderColor};
   position: fixed;
   top: 0;
   display: flex;

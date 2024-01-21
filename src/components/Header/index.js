@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom'
+import React, { useEffect, useState } from 'react'
 import { faRebel } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
@@ -8,13 +8,13 @@ import {
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { useAnimation, useScroll } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Web3 from 'web3'
 import { darkTheme, GlobalStyles2, lightTheme } from '../../styles'
-import Styled from './header.styled'
+import Styled from './Header.styled'
+import { ThemeProvider } from 'styled-components'
 
-function Header() {
+const Header = () => {
   const headerAnimation = useAnimation()
   const [darkMode, setDarkMode] = useState(true)
 
@@ -70,7 +70,7 @@ function Header() {
     localStorage.setItem('isLoggedIn', '')
   }
   return (
-    <Styled.ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <GlobalStyles2 />
       <Styled.SHeader
         className="header"
@@ -148,7 +148,7 @@ function Header() {
           )}
         </Styled.Wrapper>
       </Styled.SHeader>
-    </Styled.ThemeProvider>
+    </ThemeProvider>
   )
 }
 

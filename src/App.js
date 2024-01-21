@@ -4,11 +4,11 @@ import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { GlobalStyles, lightTheme } from './styles'
 
 // Pages
-import Home from './pages/HomePage'
-import Create from './pages/CreatePage'
-import Market from './pages/MarketPage'
-import MyPage from './pages/MyPage'
-import NotFound from './pages/NotFound'
+import HomePage from './pages/HomePage/index'
+import CreatePage from './pages/CreatePage/index'
+import MarketPage from './pages/MarketPage/index'
+import MyPage from './pages/MyPage/index'
+import NotFound from './pages/NotFound/index'
 import PageLayout from './components/PageLayout'
 
 function App() {
@@ -22,10 +22,10 @@ function App() {
 
         <Routes>
           <Route element={<PageLayout />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<HomePage />} />
             <Route path={`/users/:username`} element={<MyPage />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/market" element={<MarketPage />} />
+            <Route path="/create" element={<CreatePage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -5,7 +5,7 @@ import Detail from '../../components/Detail'
 import { Col, LoadingContainer, override } from '../../styles'
 import Styled from './Market.styled'
 
-function Market() {
+function MarketPage() {
   const [lists, setLists] = useState([])
   const [loading, setLoading] = useState(true)
   const [tab, setTab] = useState(0)
@@ -132,4 +132,4 @@ function Market() {
   )
 }
 
-export default Market
+export default MarketPage
