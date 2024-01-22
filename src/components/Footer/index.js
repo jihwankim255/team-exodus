@@ -6,7 +6,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Styled from './Footer.styled'
+import Styled from './footer.styled'
 
 function Footer() {
   return (

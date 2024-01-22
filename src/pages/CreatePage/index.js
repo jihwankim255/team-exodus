@@ -7,7 +7,6 @@ import Styled from './create.styled'
 import { Navigate, useLocation } from 'react-router-dom'
 import { LoadingContainer, override } from '../../styles'
 import { PulseLoader } from 'react-spinners'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function CreatePage() {
   const [web3, setWeb3] = useState()

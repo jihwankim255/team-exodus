@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import ReactPaginate from 'react-paginate'
-import Styled from './Pagination.styled'
+import Styled from './pagination.styled'
 
 function Pagination({
   nftsPerPage,
