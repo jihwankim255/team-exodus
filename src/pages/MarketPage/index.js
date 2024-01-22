@@ -3,7 +3,7 @@ import PulseLoader from 'react-spinners/PulseLoader'
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar'
 import Detail from '../../components/Detail'
 import { Col, LoadingContainer, override } from '../../styles'
-import Styled from './Market.styled'
+import Styled from './market.styled'
 
 function MarketPage() {
   const [lists, setLists] = useState([])

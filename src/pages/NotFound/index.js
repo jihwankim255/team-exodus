@@ -1,6 +1,6 @@
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Styled from './NotFound.styled'
+import Styled from './notFound.styled'
 
 function NotFound() {
   return (

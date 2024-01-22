@@ -4,7 +4,7 @@ import { Col, LoadingContainer, override } from '../../styles'
 import Detail from '../../components/Detail'
 import PulseLoader from 'react-spinners/PulseLoader'
 import MarketStyled from '../MarketPage/market.styled'
-import Styled from './Home.styled'
+import Styled from './home.styled'
 
 function HomePage() {
   // 슬라이더
