@@ -56,8 +56,8 @@ const NftImg = styled.img`
 `
 
 const NftName = styled.div`
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 500;
   height: 50px;
   text-align: center;
 
@@ -66,7 +66,7 @@ const NftName = styled.div`
 `
 
 const NftOwner = styled.div`
-  font-size: 20px;
+  font-size: 15px;
   opacity: 0.8;
   text-align: center;
   background-color: white;

@@ -31,7 +31,7 @@ function Detail({ modalData, setModalVisible }) {
               </div>
             )}
 
-            <FontAwesomeIcon icon="check-square" />
+            {/* <FontAwesomeIcon icon="fas fa-check-square" /> */}
           </Styled.Name>
           <Styled.Desc>
             {modalData.current_price && (

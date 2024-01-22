@@ -65,6 +65,12 @@ const MintBtn = styled(Input)`
     scale: 1.15;
   }
 `
+const MintLoading = styled(Input)`
+  /* background-color: #708090; */
+  /* color: #fafafa; */
+  border: none;
+  font-weight: 600;
+`
 
 export default {
   BlackBox,
@@ -75,4 +81,5 @@ export default {
   Label,
   Input,
   MintBtn,
+  MintLoading,
 }

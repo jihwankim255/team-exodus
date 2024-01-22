@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route element={<PageLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path={`/users/:username`} element={<MyPage />} />
+            <Route path={'/users/:username'} element={<MyPage />} />
             <Route path="/market" element={<MarketPage />} />
             <Route path="/create" element={<CreatePage />} />
           </Route>

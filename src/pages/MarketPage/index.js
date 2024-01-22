@@ -16,10 +16,7 @@ function MarketPage() {
       method: 'GET',
       headers: { accept: 'application/json' },
     }
-    fetch(
-      'https://testnets-api.opensea.io/v2/orders/goerli/seaport/listings?limit=50',
-      options
-    )
+    fetch(process.env.REACT_APP_TESTNETS_URL, options)
       .then((response) => response.json())
       .then((response) => {
         response.orders.map((el) => {

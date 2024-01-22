@@ -4,14 +4,20 @@ import erc721abi from '../../erc721abi'
 import { useForm } from 'react-hook-form'
 import Detail from '../../components/Detail'
 import Styled from './Create.styled'
+import { Navigate, useLocation } from 'react-router-dom'
+import { LoadingContainer, override } from '../../styles'
+import { PulseLoader } from 'react-spinners'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function CreatePage() {
   const [web3, setWeb3] = useState()
   const [mintedNft, setMintedNft] = useState()
   const [mintsuccess, setMintsuccess] = useState(false)
-
-  let contractAddr = '0x0DcF7226741313910935048A5ddAF110c6146526'
+  const [loading, setLoading] = useState(false)
+  const location = useLocation()
+  const contractAddr = process.env.REACT_APP_CONTRACT_ADDR
   const userAddr = localStorage.getItem('isLoggedIn')
+  const userLogin = !(userAddr === '' || userAddr === null)
 
   const {
     register,
@@ -20,6 +26,7 @@ function CreatePage() {
   } = useForm()
 
   const onSubmit = async (data) => {
+    setLoading(true)
     const { title, artist, description, image_url = '' } = data
     setMintedNft(data)
     const tokenContract = await new web3.eth.Contract(erc721abi, contractAddr)
@@ -29,10 +36,10 @@ function CreatePage() {
       .send({ from: userAddr })
       .on('receipt', () => {})
     setMintsuccess(true)
+    setLoading(false)
   }
 
   useEffect(() => {
-    setMintsuccess(false)
     if (typeof window.ethereum !== 'undefined') {
       // window.ethereum이 있다면
       try {
@@ -43,7 +50,13 @@ function CreatePage() {
       }
     }
   }, [])
-
+  if (!userLogin)
+    return (
+      <>
+        {alert('로그인을 해주세요')}
+        <Navigate to="/" state={{ from: location }} />
+      </>
+    )
   return (
     <>
       <Styled.BlackBox />
@@ -82,8 +95,19 @@ function CreatePage() {
               {...register('image_url', { required: true })}
             />
           </Styled.InputBox>
-
-          <Styled.MintBtn type="submit" value={'Mint'} />
+          {loading ? (
+            <PulseLoader
+              color={'#708090'}
+              loading={loading}
+              cssOverride={override}
+              size={50}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+              speedMultiplier={0.5}
+            />
+          ) : (
+            <Styled.MintBtn type="submit" value={'Mint'} />
+          )}
         </Styled.FormBox>
       </Styled.Container>
     </>

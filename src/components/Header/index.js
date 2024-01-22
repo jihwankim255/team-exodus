@@ -8,9 +8,9 @@ import {
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { useAnimation, useScroll } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Web3 from 'web3'
-import { darkTheme, GlobalStyles, lightTheme } from '../../styles'
+import { darkTheme, GlobalStyles2, lightTheme } from '../../styles'
 import Styled from './Header.styled'
 import { ThemeProvider } from 'styled-components'
 import { useRecoilState, useResetRecoilState } from 'recoil'
@@ -18,6 +18,7 @@ import { accountState } from '../../recoil/atoms'
 
 const Header = () => {
   const headerAnimation = useAnimation()
+  const navigate = useNavigate()
   const [darkMode, setDarkMode] = useState(true)
   const [account, setAccount] = useRecoilState(accountState)
   const resetAccount = useResetRecoilState(accountState)
@@ -61,10 +62,11 @@ const Header = () => {
     resetAccount()
     setIsLoggedIn(false)
     localStorage.removeItem('isLoggedIn')
+    navigate('/')
   }
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <GlobalStyles />
+      <GlobalStyles2 />
       <Styled.SHeader
         className="header"
         variants={Styled.navVariants}
@@ -99,21 +101,19 @@ const Header = () => {
           </Styled.Column>
           {isLoggedIn ? (
             <Styled.Column>
-              <Link to={`/users/:username`}>
-                <Styled.Icon>
-                  <FontAwesomeIcon icon={faUser} />
-                </Styled.Icon>
-              </Link>
+              {/* <Link to={`/users/:username`}> */}
+              <Styled.Icon>
+                <FontAwesomeIcon
+                  onClick={() => navigate(`/users/${account}`)}
+                  icon={faUser}
+                />
+              </Styled.Icon>
+              {/* </Link> */}
               {/* <Styled.Icon>
                 <FontAwesomeIcon icon={faWallet} />
               </Styled.Icon> */}
               <Styled.Icon>
-                <FontAwesomeIcon
-                  onClick={() => {
-                    signOut()
-                  }}
-                  icon={faSignOutAlt}
-                />
+                <FontAwesomeIcon onClick={signOut} icon={faSignOutAlt} />
               </Styled.Icon>
             </Styled.Column>
           ) : (

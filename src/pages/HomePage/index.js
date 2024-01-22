@@ -41,31 +41,28 @@ function HomePage() {
       method: 'GET',
       headers: { accept: 'application/json' },
     }
-    fetch(
-      'https://testnets-api.opensea.io/v2/orders/goerli/seaport/listings?limit=50',
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        let prev = []
-        response.orders.map((el) => {
-          const current_price = el.current_price / 10000000000000000000
-          const { image_url, name, description } =
-            el.maker_asset_bundle.assets[0]
-          prev.push({ image_url, name, description, current_price })
+    // fetch(process.env.REACT_APP_TESTNETS_URL, options)
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     let prev = []
+    //     response.orders.map((el) => {
+    //       const current_price = el.current_price / 10000000000000000000
+    //       const { image_url, name, description } =
+    //         el.maker_asset_bundle.assets[0]
+    //       prev.push({ image_url, name, description, current_price })
 
-          /* result.push({ image_url, name, description });
-                        result.push({ image_url, name, description });
-                        result.push({ image_url, name, description });
-                        result.push({ image_url, name, description });
-                        result.push({ image_url, name, description }); */
-          // openSea tesnet APi에서 제공해주는 데이터 limit50 하드코딩
-        })
-        result = result.concat(prev).concat(prev).concat(prev).concat(prev)
-        setNfts(result)
-        setLoading(false)
-      })
-      .catch((err) => console.error(err))
+    //       /* result.push({ image_url, name, description });
+    //                     result.push({ image_url, name, description });
+    //                     result.push({ image_url, name, description });
+    //                     result.push({ image_url, name, description });
+    //                     result.push({ image_url, name, description }); */
+    //       // openSea tesnet APi에서 제공해주는 데이터 limit50 하드코딩
+    //     })
+    //     result = result.concat(prev).concat(prev).concat(prev).concat(prev)
+    //     setNfts(result)
+    //     setLoading(false)
+    //   })
+    //   .catch((err) => console.error(err))
   }, [])
 
   // 모달 창

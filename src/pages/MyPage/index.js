@@ -15,15 +15,16 @@ import MarketStyled from '../MarketPage/Market.styled'
 import PulseLoader from 'react-spinners/PulseLoader'
 import Detail from '../../components/Detail'
 import Styled from './My.styled'
+import { Navigate, useLocation } from 'react-router-dom'
 
 function MyPage() {
   const [web3, setWeb3] = useState(new Web3(window.ethereum))
   const [nftList, setNftList] = useState([])
   const [loading, setLoading] = useState(true)
-  let contractAddr = '0x0DcF7226741313910935048A5ddAF110c6146526'
-
+  const contractAddr = process.env.REACT_APP_CONTRACT_ADDR
+  const location = useLocation()
   const userAddr = localStorage.getItem('isLoggedIn')
-
+  const userLogin = !(userAddr === '' || userAddr === null)
   useEffect(() => {
     /*     if (typeof window.ethereum !== "undefined") {
       // window.ethereum이 있다면
@@ -36,12 +37,10 @@ function MyPage() {
       }
     } */
     getNftsByUser()
-    setLoading(false)
   }, [])
 
   const getNftsByUser = async () => {
     const tokenContract = await new web3.eth.Contract(erc721abi, contractAddr)
-
     const totalSupply = await tokenContract.methods.TotalSupply().call()
 
     let temp = []
@@ -51,6 +50,7 @@ function MyPage() {
     }
 
     setNftList(temp)
+    setLoading(false)
   }
 
   // 모달 창
@@ -62,7 +62,13 @@ function MyPage() {
     setModalVisible(true)
     setModalData(nft2)
   }
-
+  if (!userLogin)
+    return (
+      <>
+        {alert('로그인을 해주세요')}
+        <Navigate to="/" state={{ from: location }} />
+      </>
+    )
   return (
     <Styled.Container>
       <Styled.BackImage src={'/img/jesus.jpg'} />
@@ -99,16 +105,20 @@ function MyPage() {
           </LoadingContainer>
         ) : (
           <RowPics>
-            {nftList?.map((i, idx) => (
-              <RowPic
-                key={idx}
-                style={{ backgroundColor: 'beige' }}
-                onClick={() => handleNftClicked(i)}
-              >
-                <MarketStyled.NftImg src={i.tokenURI} />
-                <MarketStyled.NftName>{i.title}</MarketStyled.NftName>
-              </RowPic>
-            ))}
+            {nftList.length !== 0 ? (
+              nftList?.map((i, idx) => (
+                <RowPic
+                  key={idx}
+                  style={{ backgroundColor: 'beige' }}
+                  onClick={() => handleNftClicked(i)}
+                >
+                  <MarketStyled.NftImg src={i.tokenURI} />
+                  <MarketStyled.NftName>{i.title}</MarketStyled.NftName>
+                </RowPic>
+              ))
+            ) : (
+              <div>There's no NFT here :(</div>
+            )}
           </RowPics>
         )}
       </Row>
