@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const userLogin = !(user === '' || user === null)
   const location = useLocation()
   useEffect(() => {
-    console.log('PrivateRoute rendered')
+    // console.log('PrivateRoute rendered')
     if (!userLogin) {
       alert('로그인이 필요합니다')
     }

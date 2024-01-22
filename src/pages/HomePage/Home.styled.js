@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import MarketStyled from '../MarketPage/Market.styled'
+import MarketStyled from '../MarketPage/market.styled'
 
 const WelcomeWords = styled.div`
   // background-color: #00214d;

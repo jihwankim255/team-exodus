@@ -1,7 +1,7 @@
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Styled from './Detail.styled'
+import Styled from './detail.styled'
 
 function Detail({ modalData, setModalVisible }) {
   return (

@@ -8,10 +8,9 @@ import {
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons'
 import { useAnimation, useScroll } from 'framer-motion'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import Web3 from 'web3'
+import { Link, useNavigate } from 'react-router-dom'
 import { darkTheme, GlobalStyles2, lightTheme } from '../../styles'
-import Styled from './Header.styled'
+import Styled from './header.styled'
 import { ThemeProvider } from 'styled-components'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 import { accountState } from '../../recoil/atoms'
@@ -96,6 +95,9 @@ const Header = () => {
 
               <Link to="/create">
                 <Styled.Menu>Create</Styled.Menu>
+              </Link>
+              <Link to="https://sepoliafaucet.com/" target="_blank">
+                <Styled.Menu>Faucet</Styled.Menu>
               </Link>
             </Styled.Nav>
           </Styled.Column>

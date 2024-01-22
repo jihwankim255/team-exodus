@@ -51,7 +51,7 @@ function MarketPage() {
   const [modalVisible, setModalVisible] = useState(false)
   const [modalData, setModalData] = useState('')
   const handleNftClicked = (nft) => {
-    console.log(nft)
+    // console.log(nft)
     setModalVisible(true)
     setModalData(nft)
   }

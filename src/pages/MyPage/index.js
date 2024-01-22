@@ -11,7 +11,7 @@ import {
 } from '../../styles'
 import Web3 from 'web3'
 import erc721abi from '../../erc721abi'
-import MarketStyled from '../MarketPage/Market.styled'
+import MarketStyled from '../MarketPage/market.styled'
 import PulseLoader from 'react-spinners/PulseLoader'
 import Detail from '../../components/Detail'
 import Styled from './My.styled'
