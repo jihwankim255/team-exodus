@@ -14,7 +14,7 @@ import erc721abi from '../../erc721abi'
 import MarketStyled from '../MarketPage/market.styled'
 import PulseLoader from 'react-spinners/PulseLoader'
 import Detail from '../../components/Detail'
-import Styled from './My.styled'
+import Styled from './my.styled'
 import { Navigate, useLocation } from 'react-router-dom'
 
 function MyPage() {
