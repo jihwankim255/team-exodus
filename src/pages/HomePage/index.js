@@ -3,7 +3,7 @@ import Pagination from '../../components/Pagination'
 import { Col, LoadingContainer, override } from '../../styles'
 import Detail from '../../components/Detail'
 import PulseLoader from 'react-spinners/PulseLoader'
-import MarketStyled from '../MarketPage/Market.styled'
+import MarketStyled from '../MarketPage/market.styled'
 import Styled from './Home.styled'
 
 function HomePage() {
