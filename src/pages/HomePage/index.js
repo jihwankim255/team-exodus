@@ -28,6 +28,7 @@ function HomePage() {
   const options = { method: 'GET', headers: { accept: 'application/json' } }
   const [currentPage, setCurrentPage] = useState(1) // 현재 페이지
   const [nftsPerPage, setNftsPerPage] = useState(20) // 페이지당 NFT 수
+  const [error, setError] = useState(false)
   // 현재 nft
   const indexOfLastNft = currentPage * nftsPerPage
   const indexOfFirstNft = indexOfLastNft - nftsPerPage
@@ -41,28 +42,28 @@ function HomePage() {
       method: 'GET',
       headers: { accept: 'application/json' },
     }
-    // fetch(process.env.REACT_APP_TESTNETS_URL, options)
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     let prev = []
-    //     response.orders.map((el) => {
-    //       const current_price = el.current_price / 10000000000000000000
-    //       const { image_url, name, description } =
-    //         el.maker_asset_bundle.assets[0]
-    //       prev.push({ image_url, name, description, current_price })
+    fetch(process.env.REACT_APP_TESTNETS_URL, options)
+      .then((response) => response.json())
+      .then((response) => {
+        let prev = []
+        response.orders.map((el) => {
+          const current_price = el.current_price / 10000000000000000000
+          const { image_url, name, description } =
+            el.maker_asset_bundle.assets[0]
+          prev.push({ image_url, name, description, current_price })
 
-    //       /* result.push({ image_url, name, description });
-    //                     result.push({ image_url, name, description });
-    //                     result.push({ image_url, name, description });
-    //                     result.push({ image_url, name, description });
-    //                     result.push({ image_url, name, description }); */
-    //       // openSea tesnet APi에서 제공해주는 데이터 limit50 하드코딩
-    //     })
-    //     result = result.concat(prev).concat(prev).concat(prev).concat(prev)
-    //     setNfts(result)
-    //     setLoading(false)
-    //   })
-    //   .catch((err) => console.error(err))
+          //       /* result.push({ image_url, name, description });
+          //                     result.push({ image_url, name, description });
+          //                     result.push({ image_url, name, description });
+          //                     result.push({ image_url, name, description });
+          //                     result.push({ image_url, name, description }); */
+          //       // openSea tesnet APi에서 제공해주는 데이터 limit50 하드코딩
+        })
+        result = result.concat(prev).concat(prev).concat(prev).concat(prev)
+        setNfts(result)
+        setLoading(false)
+      })
+      .catch((err) => setError(true))
   }, [])
 
   // 모달 창
@@ -127,15 +128,19 @@ function HomePage() {
             }}
           >
             <Styled.FixedColLists>
-              {currentNfts?.map((i, idx) => (
-                <MarketStyled.NftBox
-                  key={idx}
-                  onClick={() => handleNftClicked(i)}
-                >
-                  <MarketStyled.NftImg src={i.image_url} />
-                  <MarketStyled.NftName>{i.name}</MarketStyled.NftName>
-                </MarketStyled.NftBox>
-              ))}
+              {!error ? (
+                currentNfts?.map((i, idx) => (
+                  <MarketStyled.NftBox
+                    key={idx}
+                    onClick={() => handleNftClicked(i)}
+                  >
+                    <MarketStyled.NftImg src={i.image_url} />
+                    <MarketStyled.NftName>{i.name}</MarketStyled.NftName>
+                  </MarketStyled.NftBox>
+                ))
+              ) : (
+                <div>에러: 요청이 너무 많습니다</div>
+              )}
             </Styled.FixedColLists>
           </Col>
           <Styled.PagenationBox>

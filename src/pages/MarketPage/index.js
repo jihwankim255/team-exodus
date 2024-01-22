@@ -10,6 +10,7 @@ function MarketPage() {
   const [loading, setLoading] = useState(true)
   const [tab, setTab] = useState(0)
   const [filteredLists, setFilteredLists] = useState([])
+  const [error, setError] = useState(false)
   useEffect(() => {
     const result = []
     const options = {
@@ -40,7 +41,7 @@ function MarketPage() {
           setLoading(false)
         })
       })
-      .catch((err) => console.error(err))
+      .catch((err) => setError(true))
   }, [])
 
   const changeTab = (num) => {
@@ -92,15 +93,19 @@ function MarketPage() {
               </LoadingContainer>
             ) : (
               <>
-                {filteredLists?.map((data) => (
-                  <Styled.NftBox onClick={() => handleNftClicked(data)}>
-                    <Styled.NftImg src={data?.image_url} />
-                    <Styled.NftOwner>
-                      {data?.owner ? data.owner : `Unnamed`}
-                    </Styled.NftOwner>
-                    <Styled.NftName>{data?.name}</Styled.NftName>
-                  </Styled.NftBox>
-                ))}
+                {!error ? (
+                  filteredLists?.map((data) => (
+                    <Styled.NftBox onClick={() => handleNftClicked(data)}>
+                      <Styled.NftImg src={data?.image_url} />
+                      <Styled.NftOwner>
+                        {data?.owner ? data.owner : `Unnamed`}
+                      </Styled.NftOwner>
+                      <Styled.NftName>{data?.name}</Styled.NftName>
+                    </Styled.NftBox>
+                  ))
+                ) : (
+                  <div>에러: 요청이 너무 많습니다</div>
+                )}
               </>
             )}
           </Styled.ColLists>
