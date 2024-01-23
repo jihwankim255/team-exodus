@@ -96,9 +96,6 @@ const Header = () => {
               <Link to="/create">
                 <Styled.Menu>Create</Styled.Menu>
               </Link>
-              <Link to="https://sepoliafaucet.com/" target="_blank">
-                <Styled.Menu>Faucet</Styled.Menu>
-              </Link>
             </Styled.Nav>
           </Styled.Column>
           {isLoggedIn ? (
