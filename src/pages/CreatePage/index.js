@@ -15,7 +15,7 @@ function CreatePage() {
   const [loading, setLoading] = useState(false)
   const location = useLocation()
   const contractAddr = process.env.REACT_APP_CONTRACT_ADDR
-  const userAddr = localStorage.getItem('isLoggedIn')
+  const userAddr = sessionStorage.getItem('isLoggedIn')
   const userLogin = !(userAddr === '' || userAddr === null)
 
   const {

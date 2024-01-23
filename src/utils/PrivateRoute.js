@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { Route, Navigate, useLocation } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 
 const PrivateRoute = ({ children }) => {
-  const user = localStorage.getItem('isLoggedIn')
+  const user = sessionStorage.getItem('isLoggedIn')
   const userLogin = !(user === '' || user === null)
   const location = useLocation()
   useEffect(() => {

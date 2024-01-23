@@ -35,9 +35,9 @@ const Header = () => {
   }, [scrollY, headerAnimation])
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // localStorage로 로그인 여부 판단
+  // sessionStorage로 로그인 여부 판단
   useEffect(() => {
-    const loggedInAccount = localStorage.getItem('isLoggedIn')
+    const loggedInAccount = sessionStorage.getItem('isLoggedIn')
     if (loggedInAccount !== null) {
       setIsLoggedIn(true)
       setAccount(loggedInAccount)
@@ -52,7 +52,7 @@ const Header = () => {
         // setAccount(res[0])
         setAccount(res[0])
         setIsLoggedIn(true)
-        localStorage.setItem('isLoggedIn', res[0])
+        sessionStorage.setItem('isLoggedIn', res[0])
       })
 
       .catch((e) => console.log(e))
@@ -60,7 +60,7 @@ const Header = () => {
   const signOut = () => {
     resetAccount()
     setIsLoggedIn(false)
-    localStorage.removeItem('isLoggedIn')
+    sessionStorage.removeItem('isLoggedIn')
     navigate('/')
   }
   return (

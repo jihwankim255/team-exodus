@@ -23,7 +23,7 @@ function MyPage() {
   const [loading, setLoading] = useState(true)
   const contractAddr = process.env.REACT_APP_CONTRACT_ADDR
   const location = useLocation()
-  const userAddr = localStorage.getItem('isLoggedIn')
+  const userAddr = sessionStorage.getItem('isLoggedIn')
   const userLogin = !(userAddr === '' || userAddr === null)
   useEffect(() => {
     /*     if (typeof window.ethereum !== "undefined") {
@@ -75,9 +75,9 @@ function MyPage() {
       <Styled.ProfileImg />
       <Styled.Profile>
         <Styled.ProfileName>
-          {localStorage.getItem('isLoggedIn') === ''
+          {sessionStorage.getItem('isLoggedIn') === ''
             ? ''
-            : localStorage.getItem('isLoggedIn')}
+            : sessionStorage.getItem('isLoggedIn')}
         </Styled.ProfileName>
         <div>
           <Styled.Icon>
