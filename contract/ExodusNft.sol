@@ -13,7 +13,7 @@ contract MyNFTs is ERC721URIStorage, Ownable {
 
     uint256 private _totalSupply = 0;
 
-    constructor() public ERC721("MyNFT", "NFT") {}
+    constructor() public ERC721("MyNFT", "NFT") Ownable(msg.sender) {}
 
     struct NftInfo {
         string title;
