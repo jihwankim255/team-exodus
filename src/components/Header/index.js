@@ -122,7 +122,7 @@ const Header = () => {
                   connectWallet()
                 }}
               >
-                Connect Wallet
+                Connect Testnet
               </Styled.WalletBtn>
             </Styled.Column>
           )}

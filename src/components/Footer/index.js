@@ -14,50 +14,50 @@ function Footer() {
       <Styled.FooterPadding className="sb__footer section__padding">
         <Styled.FooterLinks className="sb__footer-links">
           <Styled.FooterLinksDiv className="sb__footer-links_div">
-            <Styled.H4>For Business</Styled.H4>
+            <Styled.H4>this is a clone project</Styled.H4>
             <Styled.Link>
-              <Styled.P>Employer</Styled.P>
+              <Styled.P>Lorem</Styled.P>
             </Styled.Link>
             <Styled.Link>
-              <Styled.P>Health Plan</Styled.P>
+              <Styled.P>Ipsum</Styled.P>
             </Styled.Link>
             <Styled.Link>
-              <Styled.P>Individual</Styled.P>
-            </Styled.Link>
-          </Styled.FooterLinksDiv>
-
-          <Styled.FooterLinksDiv className="sb__footer-links_div">
-            <Styled.H4>Resources</Styled.H4>
-            <Styled.Link>
-              <Styled.P>resource center</Styled.P>
-            </Styled.Link>
-            <Styled.Link>
-              <Styled.P>Testimonials</Styled.P>
-            </Styled.Link>
-            <Styled.Link>
-              <Styled.P>STV</Styled.P>
+              <Styled.P>my portfolio</Styled.P>
             </Styled.Link>
           </Styled.FooterLinksDiv>
 
           <Styled.FooterLinksDiv className="sb__footer-links_div">
-            <Styled.H4>Partners</Styled.H4>
+            <Styled.H4>My careet</Styled.H4>
             <Styled.Link>
-              <Styled.P>Swing Tech</Styled.P>
+              <Styled.P>study hard</Styled.P>
+            </Styled.Link>
+            <Styled.Link>
+              <Styled.P>good at problem solving</Styled.P>
+            </Styled.Link>
+            <Styled.Link>
+              <Styled.P>like coding</Styled.P>
+            </Styled.Link>
+          </Styled.FooterLinksDiv>
+
+          <Styled.FooterLinksDiv className="sb__footer-links_div">
+            <Styled.H4>hire me</Styled.H4>
+            <Styled.Link>
+              <Styled.P>i want to work</Styled.P>
             </Styled.Link>
           </Styled.FooterLinksDiv>
           <Styled.FooterLinksDiv className="sb__footer-links_div">
-            <Styled.H4>Company</Styled.H4>
+            <Styled.H4>I'm the one</Styled.H4>
             <Styled.Link>
-              <Styled.P>About</Styled.P>
+              <Styled.P>you've</Styled.P>
             </Styled.Link>
             <Styled.Link>
-              <Styled.P>Prress</Styled.P>
+              <Styled.P>been</Styled.P>
             </Styled.Link>
             <Styled.Link>
-              <Styled.P>Career</Styled.P>
+              <Styled.P>looking</Styled.P>
             </Styled.Link>
             <Styled.Link>
-              <Styled.P>Contact</Styled.P>
+              <Styled.P>for</Styled.P>
             </Styled.Link>
           </Styled.FooterLinksDiv>
           <Styled.FooterLinksDiv className="sb__footer-links_div">
@@ -82,28 +82,28 @@ function Footer() {
         <Styled.FooterBelow className="sb__footer-below">
           <div className="sb__footer-copyright">
             <Styled.FooterCopyrightP>
-              Copyrightⓒ 2023 ExodusInc. All right reserved.
+              2023 TeamExodus my portfolio
             </Styled.FooterCopyrightP>
           </div>
           <Styled.FooterBelowLinks className="sb__footer-below-links">
             <Styled.Link>
               <div>
-                <Styled.BelowP>Terms &Conditions</Styled.BelowP>
+                <Styled.BelowP>Lorem Ipsum</Styled.BelowP>
               </div>
             </Styled.Link>
             <Styled.Link>
               <div>
-                <Styled.BelowP>Privacy</Styled.BelowP>
+                <Styled.BelowP> is simply dummy text </Styled.BelowP>
               </div>
             </Styled.Link>
             <Styled.Link>
               <div>
-                <Styled.BelowP>Security</Styled.BelowP>
+                <Styled.BelowP>of the printing </Styled.BelowP>
               </div>
             </Styled.Link>
             <Styled.Link>
               <div>
-                <Styled.BelowP>Cookie Declaration</Styled.BelowP>
+                <Styled.BelowP>and typesetting industry</Styled.BelowP>
               </div>
             </Styled.Link>
           </Styled.FooterBelowLinks>

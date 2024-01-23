@@ -77,7 +77,7 @@ function HomePage() {
     <Styled.Container>
       <Styled.Wallpaper>
         <Styled.WelcomeWords>
-          <span>Welcome to the 3rd Generation NFT Market</span>
+          <span>Welcome to my portfolio project, NFT Market clone site</span>
           <span>EXODUS</span>
         </Styled.WelcomeWords>
         <Styled.ImageContainer />
@@ -103,7 +103,9 @@ function HomePage() {
                     </Row>
                 </AnimatePresence>
             </Slider> */}
-      <Styled.ListTitle>Trending in Arts</Styled.ListTitle>
+      <Styled.ListTitle>
+        실제 데이터가 아닌, Opensea 테스트넷 api의 테스트 데이터 입니다
+      </Styled.ListTitle>
       {loading ? (
         <LoadingContainer>
           <PulseLoader

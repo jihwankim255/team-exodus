@@ -16,7 +16,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider theme={lightTheme}>
         <Helmet>
-          <title>Exodus, the next generation of NFT market</title>
+          <title>Exodus, my portfolio website | clone NFT market project</title>
         </Helmet>
         <GlobalStyles />
 
