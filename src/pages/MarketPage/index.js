@@ -61,13 +61,11 @@ function MarketPage() {
       <Styled.BlackBox />
       <Styled.Container>
         <Styled.SidebarCol>
-          {' '}
           <Sidebar>
             <Menu>
               <SubMenu label="NFT Collections">
                 <MenuItem onClick={() => changeTab(0)}>
-                  {' '}
-                  Drawing & Painting{' '}
+                  Drawing & Painting
                 </MenuItem>
                 <MenuItem onClick={() => changeTab(1)}> Gaming Art </MenuItem>
                 <MenuItem onClick={() => changeTab(2)}> Digital Art </MenuItem>

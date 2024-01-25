@@ -77,7 +77,7 @@ function HomePage() {
     <Styled.Container>
       <Styled.Wallpaper>
         <Styled.WelcomeWords>
-          <span>Welcome to my portfolio project, NFT Market clone site</span>
+          <span>Welcome to my portfolio project, NFT MarketPlace Project</span>
           <span>EXODUS</span>
         </Styled.WelcomeWords>
         <Styled.ImageContainer />
